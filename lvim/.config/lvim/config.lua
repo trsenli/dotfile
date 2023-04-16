@@ -168,7 +168,20 @@ lvim.plugins = {
       "folke/trouble.nvim",
       cmd = "TroubleToggle",
     },
-    {"ggandor/leap.nvim"}
+    {"ggandor/leap.nvim"},
+    {
+      "folke/todo-comments.nvim",
+      event = "BufRead",
+      config = function()
+        require("todo-comments").setup()
+      end,
+    },
+    {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require('symbols-outline').setup()
+    end
+    },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -191,7 +204,22 @@ lvim.plugins = {
 vim.o.guifont = "FiraCode Nerd Font:h13"
 require('leap').add_default_mappings()
 
+-- Personal keymap
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
+-- Trouble.nvim keymap
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics",
+  t = { "<cmd>TroubleToggle<cr>", "trouble" },
+  w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
+  d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+}
+
+lvim.builtin.which_key.mappings["o"] = {
+  "<cmd>SymbolsOutline<CR>", "Outline"
+}
 
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
