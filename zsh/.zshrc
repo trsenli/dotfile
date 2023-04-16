@@ -139,6 +139,10 @@ export PATH=$PATH:~/.local/bin
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias n="nvim"
+alias ll='ls -lF'
+alias lla='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # proxy 
 
@@ -155,3 +159,6 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
