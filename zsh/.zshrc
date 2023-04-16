@@ -125,7 +125,7 @@ export PATH=$PATH:~/.local/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias n="nvim"
+alias n="lvim"
 alias ll='ls -lF'
 alias lla='ls -alF'
 alias la='ls -A'
