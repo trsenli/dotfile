@@ -21,6 +21,14 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+lvim.lsp.buffer_mappings.normal_mode['<C-Up>'] = nil
+lvim.keys.normal_mode['<M-Up>'] = ":resize -2<CR>"
+lvim.lsp.buffer_mappings.normal_mode['<C-Down>'] = nil
+lvim.keys.normal_mode['<M-Down>'] = ":resize +2<CR>"
+lvim.lsp.buffer_mappings.normal_mode['<C-Left>'] = nil
+lvim.keys.normal_mode['<M-Left>'] = ":vertical resize -2<CR>"
+lvim.lsp.buffer_mappings.normal_mode['<C-Right>'] = nil
+lvim.keys.normal_mode['<M-Right>'] = ":vertical resize +2<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -181,6 +189,33 @@ lvim.plugins = {
     config = function()
       require('symbols-outline').setup()
     end
+    },
+    {
+      "abecodes/tabout.nvim",
+      config = function()
+        require('tabout').setup {
+        tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
+        backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
+        act_as_tab = true, -- shift content if tab out is not possible
+        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        default_tab = '<C-t>', -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+        default_shift_tab = '<C-d>', -- reverse shift default action,
+        enable_backwards = true, -- well ...
+        completion = true, -- if the tabkey is used in a completion pum
+        tabouts = {
+          {open = "'", close = "'"},
+          {open = '"', close = '"'},
+          {open = '`', close = '`'},
+          {open = '(', close = ')'},
+          {open = '[', close = ']'},
+          {open = '{', close = '}'}
+        },
+        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+        exclude = {} -- tabout will ignore these filetypes
+      }
+      end,
+      wants = {'nvim-treesitter'}, -- or require if not used so far
+      after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     },
 }
 
