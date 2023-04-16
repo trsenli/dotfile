@@ -148,4 +148,5 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-source .user_env.sh 
+
+[ -f ~/.user_env.sh ] && source ~/.user_env.sh 
