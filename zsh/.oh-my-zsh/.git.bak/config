@@ -1,0 +1,27 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+	eol = lf
+	autocrlf = false
+[fsck]
+	zeroPaddedFilemode = ignore
+[fetch "fsck"]
+	zeroPaddedFilemode = ignore
+[receive "fsck"]
+	zeroPaddedFilemode = ignore
+[oh-my-zsh]
+	remote = origin
+	branch = master
+	lastVersion = 9f9d3b7d247b3c3e21542abaaf107e3d15aac1a5
+[remote "origin"]
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[rebase]
+	autoStash = true
