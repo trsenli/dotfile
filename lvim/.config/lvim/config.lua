@@ -217,6 +217,11 @@ lvim.plugins = {
       wants = {'nvim-treesitter'}, -- or require if not used so far
       after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     },
+    -- {
+    -- "ray-x/lsp_signature.nvim",
+    -- event = "BufRead",
+    -- config = function() require"lsp_signature".on_attach() end,
+    -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
