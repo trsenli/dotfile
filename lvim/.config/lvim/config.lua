@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "catppuccin-mocha"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -176,6 +176,7 @@ lvim.plugins = {
       "folke/trouble.nvim",
       cmd = "TroubleToggle",
     },
+    { "catppuccin/nvim", as = "catppuccin" }, -- theme
     {"ggandor/leap.nvim"},
     {
       "folke/todo-comments.nvim",
@@ -243,7 +244,57 @@ lvim.plugins = {
 -- Personal Config
 vim.o.guifont = "FiraCode Nerd Font:h13"
 require('leap').add_default_mappings()
+require("catppuccin").setup({
+    integrations = {
+      telescope = true,
+      which_key = true,
+      symbols_outline = true,
+      leap = true,
+      dashboard = true,
+      mason = true,
+      dap = {
+              enabled = true,
+              enable_ui = true,
+          },
+          indent_blankline = {
+              enabled = true,
+              colored_indent_levels = true,
+          },
+          native_lsp = {
+              enabled = true,
+              virtual_text = {
+                  errors = { "italic" },
+                  hints = { "italic" },
+                  warnings = { "italic" },
+                  information = { "italic" },
+              },
+              underlines = {
+                  errors = { "underline" },
+                  hints = { "underline" },
+                  warnings = { "underline" },
+                  information = { "underline" },
+              },
+          },
+      }
+})
+require("bufferline").setup {
+      highlights = require("catppuccin.groups.integrations.bufferline").get()
+    }
+require('lualine').setup {
+    options = {
+        theme = "catppuccin"
+        -- ... the rest of your lualine config
+    }
+}
+-- indent_blankline config
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
 
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
 -- Personal keymap
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
 -- Trouble.nvim keymap
