@@ -286,6 +286,9 @@ require('lualine').setup {
         -- ... the rest of your lualine config
     }
 }
+require("catppuccin").setup({
+  transparent_background = true,
+})
 -- indent_blankline config
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
