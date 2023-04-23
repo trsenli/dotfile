@@ -130,6 +130,8 @@ alias ll='ls -lF'
 alias lla='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias tn="tmux new-session -s"
+alias ta="tmux attach-session -t"
 
 # proxy 
 
