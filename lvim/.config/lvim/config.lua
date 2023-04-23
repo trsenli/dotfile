@@ -282,12 +282,21 @@ require("bufferline").setup {
     }
 require('lualine').setup {
     options = {
-        theme = "catppuccin"
+        theme = 'catppuccin'
         -- ... the rest of your lualine config
-    }
+    },
+  -- don't work properly
+  extensions = {
+    'fzf',
+    'symbols-outline',
+    'nvim-dap-ui',
+    'toggleterm',
+    'quickfix',
+    'trouble'
+  }
 }
 require("catppuccin").setup({
-  transparent_background = true,
+  transparent_background = false,
 })
 -- indent_blankline config
 vim.opt.list = true
