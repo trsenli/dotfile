@@ -70,7 +70,7 @@ lvim.keys.normal_mode['<M-Right>'] = ":vertical resize +2<CR>"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = true
+lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -91,7 +91,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "yaml",
 }
-
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
@@ -192,38 +191,11 @@ lvim.plugins = {
     end
     },
     {"MattesGroeger/vim-bookmarks"},
-    -- {
-    --   "abecodes/tabout.nvim",
-    --   config = function()
-    --     require('tabout').setup {
-    --     tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
-    --     backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
-    --     act_as_tab = true, -- shift content if tab out is not possible
-    --     act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-    --     default_tab = '<C-t>', -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-    --     default_shift_tab = '<C-d>', -- reverse shift default action,
-    --     enable_backwards = true, -- well ...
-    --     completion = true, -- if the tabkey is used in a completion pum
-    --     tabouts = {
-    --       {open = "'", close = "'"},
-    --       {open = '"', close = '"'},
-    --       {open = '`', close = '`'},
-    --       {open = '(', close = ')'},
-    --       {open = '[', close = ']'},
-    --       {open = '{', close = '}'}
-    --     },
-    --     ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-    --     exclude = {} -- tabout will ignore these filetypes
-    --   }
-    --   end,
-    --   wants = {'nvim-treesitter'}, -- or require if not used so far
-    --   after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
-    -- },
-    -- {
-    -- "ray-x/lsp_signature.nvim",
-    -- event = "BufRead",
-    -- config = function() require"lsp_signature".on_attach() end,
-    -- },
+    {
+    "glepnir/dashboard-nvim",
+    event = 'VimEnter',
+    requires = {'nvim-tree/nvim-web-devicons'}
+    },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -243,6 +215,49 @@ lvim.plugins = {
 
 
 -- Personal Config
+require("dashboard").setup({
+  theme = 'hyper',
+    config = {
+      week_header = {
+       enable = true,
+        concat = "宜敲代码",
+        append = {
+        '🐧 Zhenli',
+      }
+      },
+    change_to_vcs_root = true,
+      shortcut = {
+        -- { desc = '󰊳 Update', group = '@property', action = 'PackerSync', key = 'u' },
+        { desc = " New File",
+          action = 'enew',
+          key = 'e'
+        },
+        {
+          icon = ' ',
+          icon_hl = '@variable',
+          desc = 'Files',
+          group = 'Label',
+          action = 'Telescope find_files',
+          key = 'f',
+        },
+        {
+          -- desc = ' Apps',
+          desc = " Recent files",
+          group = 'DiagnosticHint',
+          action = 'Telescope oldfiles',
+          key = 'r',
+        },
+        {
+          desc = ' Project',
+          group = 'Number',
+          action = 'Telescope projects',
+          -- action = "<cmd>edit " .. get_config_dir() .. "/config.lua<cr>",
+          key = 'p',
+        },
+      },
+      project = { icon = '' },
+    }
+})
 vim.o.guifont = "FiraCode Nerd Font:h13"
 require('leap').add_default_mappings()
 require("catppuccin").setup({
@@ -251,16 +266,16 @@ require("catppuccin").setup({
       which_key = true,
       symbols_outline = true,
       leap = true,
-      dashboard = true,
+      -- dashboard = true,
       mason = true,
       dap = {
               enabled = true,
               enable_ui = true,
           },
-          indent_blankline = {
-              enabled = true,
-              colored_indent_levels = true,
-          },
+          -- indent_blankline = {
+          --     enabled = true,
+          --     colored_indent_levels = true,
+          -- },
           native_lsp = {
               enabled = true,
               virtual_text = {
@@ -303,13 +318,33 @@ require("catppuccin").setup({
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-}
+-- require('indent_blankline').setup {
+--     space_char_blankline = " ",
+--     show_current_context = true,
+--     show_current_context_start = true,
+-- }
+require("indent_blankline").setup({
+  --space_char_blankline = " ",
+  show_current_context = true,
+  show_current_context_start = true,
+  filetype_exclude = {
+    "help",
+    "packer",
+    "dashboard",
+    "nvim-tree",
+    "lspinfo",
+    "TelescopePrompt",
+    "TelescopeResults",
+    "mason",
+    "",
+  },
+  show_trailing_blankline_indent = false,
+  show_first_indent_level = false,
+})
 -- Personal keymap
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("i","<C-f>","<Right>",{ noremap = true})
+vim.api.nvim_set_keymap("i","<C-b>","<Left>",{ noremap = true})
 -- Trouble.nvim keymap
 lvim.builtin.which_key.mappings["t"] = {
   name = "Diagnostics",
@@ -323,6 +358,9 @@ lvim.builtin.which_key.mappings["t"] = {
 
 lvim.builtin.which_key.mappings["o"] = {
   "<cmd>SymbolsOutline<CR>", "Outline"
+}
+lvim.builtin.which_key.mappings["P"] = {
+  "<cmd>Telescope projects<CR>", "Projects"
 }
 
 vim.opt.backup = false -- creates a backup file
@@ -396,3 +434,4 @@ dap.configurations.cpp = {
     stopOnEntry = false,
   },
 }
+
