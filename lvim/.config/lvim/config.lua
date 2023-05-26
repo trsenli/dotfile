@@ -75,6 +75,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.indentlines.options.show_current_context = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -215,6 +216,16 @@ lvim.plugins = {
 
 
 -- Personal Config
+
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
+
 require("dashboard").setup({
   theme = 'hyper',
     config = {
@@ -266,16 +277,12 @@ require("catppuccin").setup({
       which_key = true,
       symbols_outline = true,
       leap = true,
-      -- dashboard = true,
+      dashboard = true,
       mason = true,
       dap = {
               enabled = true,
               enable_ui = true,
           },
-          -- indent_blankline = {
-          --     enabled = true,
-          --     colored_indent_levels = true,
-          -- },
           native_lsp = {
               enabled = true,
               virtual_text = {
@@ -314,33 +321,6 @@ require('lualine').setup {
 require("catppuccin").setup({
   transparent_background = false,
 })
--- indent_blankline config
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-
--- require('indent_blankline').setup {
---     space_char_blankline = " ",
---     show_current_context = true,
---     show_current_context_start = true,
--- }
-require("indent_blankline").setup({
-  --space_char_blankline = " ",
-  show_current_context = true,
-  show_current_context_start = true,
-  filetype_exclude = {
-    "help",
-    "packer",
-    "dashboard",
-    "nvim-tree",
-    "lspinfo",
-    "TelescopePrompt",
-    "TelescopeResults",
-    "mason",
-    "",
-  },
-  show_trailing_blankline_indent = false,
-  show_first_indent_level = false,
-})
 -- Personal keymap
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("i","<C-f>","<Right>",{ noremap = true})
@@ -361,6 +341,9 @@ lvim.builtin.which_key.mappings["o"] = {
 }
 lvim.builtin.which_key.mappings["P"] = {
   "<cmd>Telescope projects<CR>", "Projects"
+}
+lvim.builtin.which_key.mappings[";"] = {
+  "<cmd>Dashboard<CR>", "Dashboard"
 }
 
 vim.opt.backup = false -- creates a backup file

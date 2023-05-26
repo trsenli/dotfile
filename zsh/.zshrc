@@ -132,6 +132,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias tn="tmux new-session -s"
 alias ta="tmux attach-session -t"
+alias c="clear"
 
 # proxy 
 
@@ -139,7 +140,7 @@ alias setproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0
 alias unsetproxy="unset https_proxy http_proxy all_proxy"
 
 
-
+custom_directory="$HOME/custom"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
