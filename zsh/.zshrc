@@ -125,7 +125,7 @@ export PATH=$PATH:~/.local/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias n="lvim"
+alias n="nvim"
 alias ll='ls -lF'
 alias lla='ls -alF'
 alias la='ls -A'
@@ -133,6 +133,9 @@ alias l='ls -CF'
 alias tn="tmux new-session -s"
 alias ta="tmux attach-session -t"
 alias c="clear"
+alias d="cd"
+alias d..="cd .."
+alias ze="zellij"
 
 # proxy 
 
@@ -153,3 +156,6 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 [ -f ~/.user_env.sh ] && source ~/.user_env.sh 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
