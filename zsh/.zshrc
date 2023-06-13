@@ -136,6 +136,7 @@ alias c="clear"
 alias d="cd"
 alias d..="cd .."
 alias ze="zellij"
+alias lg="lazygit"
 
 # proxy 
 
