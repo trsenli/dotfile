@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 
-# lunarVim
+# add some PATH
 export PATH=$PATH:~/.local/bin
 
 # Preferred editor for local and remote sessions
@@ -150,6 +150,10 @@ custom_directory="$HOME/custom"
 
 # 关闭 homebrew 自动更新
 export HOMEBREW_NO_AUTO_UPDATE=true
+
+# set default editor
+
+export EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
