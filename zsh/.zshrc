@@ -164,3 +164,5 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# To customize prompt, run `p10k configure` or edit ~/dotfile/zsh/.p10k.zsh.
+[[ ! -f ~/dotfile/zsh/.p10k.zsh ]] || source ~/dotfile/zsh/.p10k.zsh
