@@ -11,7 +11,7 @@ fi
 # - reminder: a reminder is shown to the user when it's time to update
 # - disabled: automatic update is turned off
 zstyle -s ':omz:update' mode update_mode || {
-  update_mode=prompt
+  update_mode=disabled
 
   # If the mode zstyle setting is not set, support old-style settings
   [[ "$DISABLE_UPDATE_PROMPT" != true ]] || update_mode=auto
