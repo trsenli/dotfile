@@ -187,7 +187,7 @@ export EDITOR=nvim
 [ -f ~/.user_env.sh ] && source ~/.user_env.sh 
 
 # init fasd ( a tool like z,autojump)
-#eval "$(fasd --init auto)"
+eval "$(fasd --init auto)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
