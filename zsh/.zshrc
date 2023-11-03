@@ -186,9 +186,6 @@ export EDITOR=nvim
 # 加载本机个人设置
 [ -f ~/.user_env.sh ] && source ~/.user_env.sh 
 
-# init fasd ( a tool like z,autojump)
-eval "$(fasd --init auto)"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Not display the timestap when CtrlR search the history
@@ -197,3 +194,6 @@ export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
 #! SHLVL 表示当前shell的嵌套程度. 在tmux中,shlvl会是2,在asciiship这个prompt中会一直显示,这里只是为了让它不显示.
 # 如果出了问题,再删除
 export SHLVL=1
+
+# init zoxide (directory autojump tool)
+eval "$(zoxide init zsh)"
