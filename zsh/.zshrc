@@ -131,7 +131,7 @@ unset key
 # -----
 # alias
 # -----
-
+alias rm="rm -i"
 alias n="nvim"
 alias ll='ls -lF'
 alias lla='ls -alF'
