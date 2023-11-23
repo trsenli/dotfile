@@ -15,4 +15,17 @@ return{
       require'lspconfig'.lua_ls.setup{}
     end
   },
+  -- Disable Plugin Updates notifications
+  {
+    "folke/noice.nvim",
+    opts = function (_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "Plugin Updates"
+        },
+        opts = { skip = true },
+      })
+    end,
+  }
 }
