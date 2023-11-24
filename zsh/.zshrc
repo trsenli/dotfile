@@ -202,6 +202,7 @@ eval "$(zoxide init zsh)"
 export TERM="xterm-256color"
 # [[ -n $TMUX ]] && export TERM="screen-256color"
 
+# tmux preset layout
 function ide()
 {
   if [ -n "$TMUX" ]; then
