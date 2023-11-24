@@ -197,3 +197,7 @@ export SHLVL=1
 
 # init zoxide (directory autojump tool)
 eval "$(zoxide init zsh)"
+
+# set TERM variable
+export TERM="xterm-256color"
+[[ -n $TMUX ]] && export TERM="screen-256color"
