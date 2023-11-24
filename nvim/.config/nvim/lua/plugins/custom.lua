@@ -11,18 +11,6 @@ return {
     end,
   },
   {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup({
-        transparent = true,
-        styles = {
-          sidebars = "transparent",
-          floats = "transparent",
-        },
-      })
-    end,
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "solarized-osaka",
@@ -38,6 +26,7 @@ return {
         },
         opts = { skip = true },
       })
+      opts.presets.lsp_doc_border = true
     end,
   },
   -- UI animations
