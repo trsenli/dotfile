@@ -201,3 +201,14 @@ eval "$(zoxide init zsh)"
 # set TERM variable
 export TERM="xterm-256color"
 # [[ -n $TMUX ]] && export TERM="screen-256color"
+
+function ide()
+{
+  if [ -n "$TMUX" ]; then
+    tmux split-window -v -p 30
+    tmux split-window -h -p 66
+    tmux split-window -h -p 50
+  else 
+    echo "Not in the tmux"
+  fi
+}
