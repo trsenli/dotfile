@@ -1,10 +1,30 @@
 return{
   {"ellisonleao/gruvbox.nvim"},
-  {"rebelot/kanagawa.nvim"},
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = true,
+    priority = 1000,
+    opts = function ()
+      return {
+        transparent = true,
+      }
+    end,
+  },
+  {"rebelot/kanagawa.nvim",
+    config = function()
+      require('kanagawa').setup({
+        transparent = true,
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        }
+      })
+    end
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "solarized-osaka",
     },
   },
   {
