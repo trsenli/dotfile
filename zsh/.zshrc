@@ -213,3 +213,6 @@ function ide()
     echo "Not in the tmux"
   fi
 }
+
+# some universal path
+export PATH=$PATH:$HOME/.local/bin
