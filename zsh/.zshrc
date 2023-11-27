@@ -199,8 +199,7 @@ export SHLVL=1
 eval "$(zoxide init zsh)"
 
 # set TERM variable
-export TERM="xterm-256color"
-# [[ -n $TMUX ]] && export TERM="screen-256color"
+if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 # tmux preset layout
 function ide()
