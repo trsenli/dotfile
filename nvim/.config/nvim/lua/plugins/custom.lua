@@ -11,9 +11,15 @@ return {
     end,
   },
   {
+    "EdenEast/nightfox.nvim",
+  },
+  {
     "LazyVim/LazyVim",
+    dependencies = {
+    "craftzdog/solarized-osaka.nvim",
+    },
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "nightfox",
     },
   },
   {
@@ -113,7 +119,8 @@ return {
     opts = {
       options = {
         -- globalstatus = false,
-        theme = "solarized_dark",
+        -- theme = "solarized_dark",
+        theme = "nightfox",
       },
     },
   },
