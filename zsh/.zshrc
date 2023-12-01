@@ -136,6 +136,7 @@ alias rm="rm -i"
 alias n="nvim"
 alias tn="tmux new-session -s"
 alias ta="tmux attach-session -t"
+alias tf="tmuxifier"
 alias c="clear"
 alias lg="lazygit"
 alias vim="vim -c \"syntax on\""
@@ -224,4 +225,11 @@ else
 fi
 
 # some universal path
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin 
+export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
+
+# init tmuxifier
+# tmuxifier layout file is placed in $TMUXIFIER_LAYOUT_PATH
+# $TMUXIFIER_LAYOUT_PATH default is where the tmuxifier installed.
+# $HOME/.tmux/plugins/tmuxifier/layouts/
+eval "$(tmuxifier init -)"
