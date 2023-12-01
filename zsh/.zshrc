@@ -131,18 +131,6 @@ unset key
 # -----
 # alias
 # -----
-if command -v lsd &> /dev/null; then # In unix , exit code 0 is true.
-  alias ls="lsd"
-  alias l='ls -l'
-  alias la='ls -a'
-  alias lla='ls -la'
-  alias lt='ls --tree'
-else
-  alias ll='ls -lF'
-  alias lla='ls -alF'
-  alias la='ls -A'
-  alias l='ls -CF'
-fi
 
 alias rm="rm -i"
 alias n="nvim"
@@ -221,6 +209,19 @@ function ide()
     echo "Not in the tmux"
   fi
 }
+# 有个插件的alias 覆盖了我 ls 设置,所以把自己的放到最后,避免覆盖
+if command -v lsd &> /dev/null; then # In unix , exit code 0 is true.
+  alias ls='lsd'
+  alias l='ls -l'
+  alias la='ls -a'
+  alias lla='ls -la'
+  alias lt='ls --tree'
+else
+  alias ll='ls -lF'
+  alias lla='ls -alF'
+  alias la='ls -A'
+  alias l='ls -CF'
+fi
 
 # some universal path
 export PATH=$PATH:$HOME/.local/bin
