@@ -140,6 +140,7 @@ alias tf="tmuxifier"
 alias c="clear"
 alias lg="lazygit"
 alias vim="vim -c \"syntax on\""
+alias ra="ranger"
 
 # -------------
 # proxy setting
@@ -199,17 +200,6 @@ eval "$(zoxide init zsh)"
 # set TERM variable
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
-# tmux preset layout
-function ide()
-{
-  if [ -n "$TMUX" ]; then
-    tmux split-window -v -p 30
-    tmux split-window -h -p 66
-    tmux split-window -h -p 50
-  else 
-    echo "Not in the tmux"
-  fi
-}
 # 有个插件的alias 覆盖了我 ls 设置,所以把自己的放到最后,避免覆盖
 if command -v lsd &> /dev/null; then # In unix , exit code 0 is true.
   alias ls='lsd'
