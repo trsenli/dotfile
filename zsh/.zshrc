@@ -177,7 +177,7 @@ os=$(uname -s)
 
 # set bat theme
 export BAT_THEME="gruvbox-dark"
-if [ $os != "Darwin" ];then
+if [ $os != "Darwin" ] && [ ! -e ~/.local/bin/bat ];then
    ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # man with bat
