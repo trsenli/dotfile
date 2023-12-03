@@ -173,8 +173,18 @@ source ${ZIM_HOME}/init.zsh
 # Misc
 # ----
 
+os=$(uname -s)
+
+# set bat theme
+export BAT_THEME="gruvbox-dark"
+if [ $os != "Darwin" ];then
+   ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
+export MANPAGER="sh -c 'col -bx | bat -l man -p'" # man with bat
+
 # 加载 fzf 设置
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse '
+alias fzfp='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 # 关闭 homebrew 自动更新
 export HOMEBREW_NO_AUTO_UPDATE=true
