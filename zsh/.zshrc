@@ -177,7 +177,12 @@ os=$(uname -s)
 
 # set bat theme
 export BAT_THEME="gruvbox-dark"
-if [ $os != "Darwin" ] && [ ! -e ~/.local/bin/bat ];then
+if [ $os != "Darwin" ] && [ ! -e ~/.local/bin/bat ] && [ ! -e /usr/bin/bat ] && [ -e /usr/bin/batcat ];then
+  # installed from apt, binary name is batcat, from release, binary name is bat
+  # cteat the link when:
+  # 1. not in macos
+  # 2. not installed bat from realease
+  # 3. not link bat to batcat already
    ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # man with bat
@@ -233,3 +238,21 @@ export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 # $TMUXIFIER_LAYOUT_PATH default is where the tmuxifier installed.
 # $HOME/.tmux/plugins/tmuxifier/layouts/
 eval "$(tmuxifier init -)"
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lzl/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lzl/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lzl/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lzl/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
