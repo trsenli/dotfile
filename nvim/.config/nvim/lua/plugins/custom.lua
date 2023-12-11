@@ -1,5 +1,6 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
+  { "wakatime/vim-wakatime"},
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
