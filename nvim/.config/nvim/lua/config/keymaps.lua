@@ -11,3 +11,7 @@ keymap.set("n", "-", "<C-x>")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- jump to row head and row tail
+keymap.set("n", "H", "^")
+keymap.set("n", "L", "$")
