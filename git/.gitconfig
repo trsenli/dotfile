@@ -6,4 +6,11 @@
 #	name = lizhenli
 #	email = lzl@b514-NULL.(none)
 [merge]
-	tool = nvimdiff
+	tool = "nvim"
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[mergetool "nvim"]
+  cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
