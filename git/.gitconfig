@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+	email = ztruth@qq.com
+	name = coolpaca
+# Please adapt and uncomment the following lines:
+#	name = lizhenli
+#	email = lzl@b514-NULL.(none)
+[merge]
+	tool = nvimdiff
