@@ -5,6 +5,7 @@
 vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.mouse = "a" -- allow the mouse to be used in Nvim
 vim.g.autoformat = false
+vim.o.termguicolors = true
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

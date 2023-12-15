@@ -62,12 +62,12 @@ return {
       desc = "Lists Diagnostics for all open buffers or a specific buffers",
     },
     {
-      ";t",
+      ";s",
       function ()
         local builtin = require('telescope.builtin')
         builtin.treesitter()
       end,
-      desc = "Lists Function names, variables, from Treesitter"
+      desc = "Lists Symbols, eg,Function names, variables, from Treesitter"
     },
     {
       ";e",

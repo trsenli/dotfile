@@ -20,7 +20,7 @@ return {
     "craftzdog/solarized-osaka.nvim",
     },
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "nightfox",
     },
   },
   {
@@ -102,16 +102,32 @@ return {
       { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
       { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
     },
-    opts = {
-      options = {
-        -- mode = "tabs",
+    opts = function(_, opts)
+      opts.options = {
+        mode = "tabs",
         show_buffer_close_icons = false,
         show_close_icon = false,
+        diagnostics_indicator = false,
+        numbers = "ordinal",
+        tab_size = 12,
         indicator = {
-          style = 'underline'
-        }
-      },
-    },
+          style = 'none'
+        },
+        show_duplicate_prefix = false,
+        separator_style = "thin",
+      }
+      local bg_color = "#18524D"
+      opts.highlights = {
+        buffer_selected = {
+          bg = bg_color,
+          bold = true,
+          italic = true,
+        },
+        numbers_selected = {
+          bg = bg_color,
+        },
+      }
+    end,
   },
   -- statusline
   {
