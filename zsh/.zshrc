@@ -141,6 +141,7 @@ alias c="clear"
 alias lg="lazygit"
 alias vim="vim -c \"syntax on\""
 alias ra="ranger"
+alias rr="source ranger"
 
 # -------------
 # proxy setting
