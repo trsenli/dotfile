@@ -96,6 +96,7 @@ return {
 			local fb_actions = require("telescope").extensions.file_browser.actions
 
 			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+        follow_symlinks  = true,
 				wrap_results = true,
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },
@@ -116,6 +117,7 @@ return {
 			}
 			opts.extensions = {
 				file_browser = {
+          follow_symlinks = true,
 					theme = "dropdown",
 					-- disables netrw and use telescope-file-browser in its place
 					hijack_netrw = true,
@@ -125,6 +127,8 @@ return {
 							-- your custom normal mode mappings
 							["N"] = fb_actions.create,
 							["h"] = fb_actions.goto_parent_dir,
+              ["l"] = fb_actions.change_cwd,
+              ["H"] = fb_actions.toggle_hidden,
 							["/"] = function()
 								vim.cmd("startinsert")
 							end,
