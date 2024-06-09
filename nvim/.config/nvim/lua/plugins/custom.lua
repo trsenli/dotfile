@@ -1,5 +1,5 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
+  { "rose-pine/neovim", name = "rose-pine" },
   { "wakatime/vim-wakatime"},
   {
     "craftzdog/solarized-osaka.nvim",
@@ -12,15 +12,11 @@ return {
     end,
   },
   {
-    "EdenEast/nightfox.nvim",
-  },
-  {
     "LazyVim/LazyVim",
     dependencies = {
-    "craftzdog/solarized-osaka.nvim",
     },
     opts = {
-      colorscheme = "nightfox",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -37,27 +33,27 @@ return {
     end,
   },
   -- UI animations
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      opts.scroll = {
-        enable = false,
-      }
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   event = "VeryLazy",
+  --   opts = function(_, opts)
+  --     opts.scroll = {
+  --       enable = false,
+  --     }
+  --   end,
+  -- },
   -- logo
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     opts = function(_, opts)
       local logo = [[
-     ██████╗ ██████╗  ██████╗ ██╗     ██████╗  █████╗  ██████╗ █████╗ 
-    ██╔════╝██╔═══██╗██╔═══██╗██║     ██╔══██╗██╔══██╗██╔════╝██╔══██╗
-    ██║     ██║   ██║██║   ██║██║     ██████╔╝███████║██║     ███████║
-    ██║     ██║   ██║██║   ██║██║     ██╔═══╝ ██╔══██║██║     ██╔══██║
-    ╚██████╗╚██████╔╝╚██████╔╝███████╗██║     ██║  ██║╚██████╗██║  ██║
-     ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ 
+      ██╗███████╗██╗  ██╗███████╗███╗   ██╗██╗
+      ██║╚══███╔╝██║  ██║██╔════╝████╗  ██║██║
+      ██║  ███╔╝ ███████║█████╗  ██╔██╗ ██║██║
+      ██║ ███╔╝  ██╔══██║██╔══╝  ██║╚██╗██║██║
+      ██║███████╗██║  ██║███████╗██║ ╚████║██║
+      ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝
       ]]
       logo = string.rep("\n", 8) .. logo .. "\n\n"
       opts.config.header = vim.split(logo, "\n")
