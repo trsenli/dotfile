@@ -234,6 +234,9 @@ fi
 export PATH=$PATH:$HOME/.local/bin 
 export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 
+# set hugging face mirror site
+export HF_ENDPOINT=https://hf-mirror.com
+
 # init tmuxifier
 # tmuxifier layout file is placed in $TMUXIFIER_LAYOUT_PATH
 # $TMUXIFIER_LAYOUT_PATH default is where the tmuxifier installed.
