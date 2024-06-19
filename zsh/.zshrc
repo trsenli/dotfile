@@ -174,6 +174,10 @@ source ${ZIM_HOME}/init.zsh
 # Misc
 # ----
 
+# shell working directory reporting. 
+# https://github.com/Eugeny/tabby/wiki/Shell-working-directory-reporting
+precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
+
 os=$(uname -s)
 
 # set bat theme
