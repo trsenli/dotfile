@@ -115,6 +115,10 @@ source ${ZIM_HOME}/init.zsh
 # Post-init module configuration
 # ------------------------------
 
+#  fix [BUG] Completion failing on Ubuntu 20.04 (fzf version <= 0.20.0)
+#  https://github.com/Aloxaf/fzf-tab/issues/391
+zstyle ':fzf-tab:*' fzf-bindings-default 'tab:down,btab:up,change:top,ctrl-space:toggle,bspace:backward-delete-char,ctrl-h:backward-delete-char'
+
 #
 # zsh-history-substring-search
 #
@@ -194,11 +198,6 @@ export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
 # 如果出了问题,再删除
 export SHLVL=1
 
-# init zoxide (directory autojump tool)
-if ! command -v zoxide &> /dev/null; then
-	curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-fi
-eval "$(zoxide init zsh)"
 
 # set TERM variable
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
@@ -231,3 +230,8 @@ export HF_ENDPOINT=https://hf-mirror.com
 eval "$(tmuxifier init -)"
 
 
+# init zoxide (directory autojump tool)
+if ! command -v zoxide &> /dev/null; then
+	curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+fi
+eval "$(zoxide init zsh)"
