@@ -1,22 +1,11 @@
 return {
-  { "rose-pine/neovim", name = "rose-pine" },
-  { "wakatime/vim-wakatime"},
-  {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = true,
-    priority = 1000,
-    opts = function()
-      return {
-        transparent = true,
-      }
-    end,
-  },
+  { "EdenEast/nightfox.nvim" }, -- lazy
   {
     "LazyVim/LazyVim",
     dependencies = {
     },
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "terafox"
     },
   },
   {
@@ -43,22 +32,22 @@ return {
   --   end,
   -- },
   -- logo
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
-      ██╗███████╗██╗  ██╗███████╗███╗   ██╗██╗
-      ██║╚══███╔╝██║  ██║██╔════╝████╗  ██║██║
-      ██║  ███╔╝ ███████║█████╗  ██╔██╗ ██║██║
-      ██║ ███╔╝  ██╔══██║██╔══╝  ██║╚██╗██║██║
-      ██║███████╗██║  ██║███████╗██║ ╚████║██║
-      ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝
-      ]]
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-    end,
-  },
+  -- {
+  --   "nvimdev/dashboard-nvim",
+  --   event = 'VimEnter',
+  --   opts = function(_, opts)
+  --     local logo = [[
+  --     ██╗███████╗██╗  ██╗███████╗███╗   ██╗██╗
+  --     ██║╚══███╔╝██║  ██║██╔════╝████╗  ██║██║
+  --     ██║  ███╔╝ ███████║█████╗  ██╔██╗ ██║██║
+  --     ██║ ███╔╝  ██╔══██║██╔══╝  ██║╚██╗██║██║
+  --     ██║███████╗██║  ██║███████╗██║ ╚████║██║
+  --     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝
+  --     ]]
+  --     logo = string.rep("\n", 8) .. logo .. "\n\n"
+  --     opts.config.header = vim.split(logo, "\n")
+  --   end,
+  -- },
   -- filename
   {
     "b0o/incline.nvim",
