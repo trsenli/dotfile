@@ -158,6 +158,18 @@ alias unsetproxy="unset https_proxy http_proxy all_proxy"
 # Misc
 # ----
 
+
+# yazi shell wrapper.
+# use `y` instead of yazi to start, and press q to quit,you'll see the CWD changed.Press Q to keep original directory.
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # shell working directory reporting. 
 # https://github.com/Eugeny/tabby/wiki/Shell-working-directory-reporting
 precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
