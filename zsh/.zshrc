@@ -168,13 +168,16 @@ os=$(uname -s)
 export BAT_THEME="gruvbox-dark"
 if [ $os != "Darwin" ] && [ ! -e ~/.local/bin/bat ] && [ ! -e /usr/bin/bat ] && [ -e /usr/bin/batcat ];then
   # installed from apt, binary name is batcat, from release, binary name is bat
-  # cteat the link when:
+  # create the link when:
   # 1. not in macos
   # 2. not installed bat from realease
   # 3. not link bat to batcat already
    ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # man with bat
+
+if [ -e ~/local/bin/bat ];then
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'" # man with bat
+fi
 
 # 加载 fzf 设置
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse '
@@ -201,6 +204,9 @@ export SHLVL=1
 
 # set TERM variable
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    export TERM=xterm-256color
+fi
 
 # 有个插件的alias 覆盖了我 ls 设置,所以把自己的放到最后,避免覆盖
 if command -v lsd &> /dev/null; then # In unix , exit code 0 is true.
