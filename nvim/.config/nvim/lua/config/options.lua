@@ -13,7 +13,7 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Tab
--- vim.opt.tabstop = 4 -- number of  visual spaces per TAB
--- vim.opt.softtabstop = 4 -- numer of spacesin tab when editing
--- vim.opt.shiftwidth = 4 -- insert 4 spaces on a tab
--- vim.opt.expandtab = true -- tabs are spaces
+vim.opt.tabstop = 4 -- number of  visual spaces per TAB
+vim.opt.softtabstop = 4 -- numer of spacesin tab when editing
+vim.opt.shiftwidth = 4 -- insert 4 spaces on a tab
+vim.opt.expandtab = true -- tabs are spaces
