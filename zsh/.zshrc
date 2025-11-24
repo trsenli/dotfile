@@ -147,6 +147,16 @@ alias vim="vim -c \"syntax on\""
 alias ra="ranger"
 alias rr="source ranger"
 
+# ---------
+# git alias
+# ---------
+
+alias gs="git status"
+alias gc="git checkout"
+alias gb="git branch"
+alias gl="git log"
+alias glg="git log --oneline"
+
 # -------------
 # proxy setting
 # -------------
@@ -253,3 +263,6 @@ if ! command -v zoxide &> /dev/null; then
 	curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 fi
 eval "$(zoxide init zsh)"
+ 
+
+
