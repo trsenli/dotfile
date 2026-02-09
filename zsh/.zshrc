@@ -146,6 +146,7 @@ alias lg="lazygit"
 alias vim="vim -c \"syntax on\""
 alias ra="ranger"
 alias rr="source ranger"
+alias cld="claude"
 
 # ---------
 # git alias
@@ -264,5 +265,3 @@ if ! command -v zoxide &> /dev/null; then
 fi
 eval "$(zoxide init zsh)"
  
-
-
