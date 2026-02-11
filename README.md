@@ -1,6 +1,6 @@
 # Dotfiles
 
-我的个人配置文件，使用 GNU Stow 管理。
+个人配置文件，使用 GNU Stow 管理。
 
 ## 目录结构
 
