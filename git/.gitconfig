@@ -1,12 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
 	email = ztruth@qq.com
-	name = coolpaca
-# Please adapt and uncomment the following lines:
-#	name = lizhenli
-#	email = lzl@b514-NULL.(none)
+	name = zllynx
+
 [merge]
-	tool = "nvim"
+	tool = custom
 
 [mergetool]
   prompt = false
@@ -14,3 +12,8 @@
 
 [mergetool "nvim"]
   cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[mergetool "custom"]
+	cmd = code --wait $LOCAL $BASE $REMOTE $MERGED || nvim -d $LOCAL $BASE $REMOTE $MERGED || vim -d $LOCAL $BASE $REMOTE $MERGED
+	trustExitCode = true
+[commit]
+	template = ~/.gitmessage

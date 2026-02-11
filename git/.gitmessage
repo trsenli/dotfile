@@ -1,0 +1,14 @@
+# <type>(<scope>): <subject>
+# |<----  Using a Maximum Of 50 Characters  ---->|
+
+# Explain why this change is being made
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+
+# Provide links or keys to any relevant tickets, articles or other resources
+# Example: Fixes #23
+# 
+# --------------------
+# Type: feat, fix, docs, style, refactor, perf, test, chore
+# Scope: can be empty (e.g. if the change is a general simple fix)
+# Subject: start with verb (e.g. add, fix, change), use imperative mood
+# --------------------
