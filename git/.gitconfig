@@ -17,3 +17,17 @@
 	trustExitCode = true
 [commit]
 	template = ~/.gitmessage
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	pager = less --mouse --wheel-lines=3 -R -F -X
+	line-numbers = true
+	side-by-side = true
+	line-fill-method = spaces
+	syntax-theme = Coldark-Dark
+	file-style = omit
+	file-decoration-style = omit
+	hunk-header-style = file line-number syntax
